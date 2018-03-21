@@ -32,8 +32,8 @@
                     <td>${user.createby}</td>
                     <td>${user.createtime}</td>
                     <td>
-                        <button class="btn btn-outline-primary btn-sm" id="btn-edit" data-id="${user.id}"><a class="fa fa-edit"></a> 修改</button>
-                        <button class="btn btn-outline-primary btn-sm" id="btn-del" data-id="${user.id}"><a class="fa fa-remove"></a> 删除</button>
+                        <button class="btn btn-outline-primary btn-sm btn-edit" data-id="${user.id}"><a class="fa fa-edit"></a> 修改</button>
+                        <button class="btn btn-outline-primary btn-sm btn-del" data-id="${user.id}"><a class="fa fa-remove"></a> 删除</button>
                     </td>
                 </tr>
             </#list>
@@ -46,11 +46,11 @@
             $('#btn-add').click(function () {
                 window.location.href='/user/form?id=0';
             });
-            $('#btn-edit').click(function () {
+            $('.btn-edit').click(function () {
                 var target = $(this);
                 window.location.href='/user/form?id='+target.data('id');
             });
-            $('#btn-del').click(function () {
+            $('.btn-del').click(function () {
                 var target = $(this);
                 if(confirm('确定要删除？')) {
                     $.ajax({
@@ -58,7 +58,11 @@
                         url: '/user/delete',
                         data: {id: target.data('id')},
                         success: function (response) {
-                            console.log(response);
+                            if(response.code==0){
+                                window.location.reload();
+                            }else{
+                                alert('删除失败！');
+                            }
                         }
                     })
                 }

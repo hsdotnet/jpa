@@ -1,11 +1,11 @@
 package com.hs.controller;
 
 import com.hs.domain.User;
+import com.hs.dto.BaseResponse;
 import com.hs.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -25,11 +25,18 @@ public class UserController {
     }
 
     @RequestMapping("/form")
-    public String form(Model model, @RequestParam(name = "id", required = false, defaultValue = "0") int id) {
-        System.out.println(id);
+    public String form(Model model, @RequestParam(value = "id", required = false, defaultValue = "0") int id) {
         User user = new User();
         if (id > 0) user = userService.findOne(id);
         model.addAttribute("user", user);
         return "user/form";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public BaseResponse delete(User user) {
+        BaseResponse response = new BaseResponse();
+        response.setCode(0);
+        return response;
     }
 }
