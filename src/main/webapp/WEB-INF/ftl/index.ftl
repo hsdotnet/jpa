@@ -1,11 +1,15 @@
+<#import "/common/common.macro.ftl" as common>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Index</title>
+    <@common.commonHead/>
+    <title>首页</title>
+    <@common.commonStyle/>
 </head>
 <body>
-    <h2>${msg}</h2>
+    <div class="container-fluid">
+        <a href="/user/index" title="用户管理">用户管理</a>
+    </div>
+    <@common.commonScript/>
 </body>
 </html>

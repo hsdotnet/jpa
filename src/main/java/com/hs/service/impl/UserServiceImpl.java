@@ -6,13 +6,18 @@ import com.hs.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
     @Resource
     private UserRepository userRepository;
 
-    public void save(User user) {
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
 
+    public User findOne(Integer id) {
+        return userRepository.findOne(id);
     }
 }

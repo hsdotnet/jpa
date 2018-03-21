@@ -9,18 +9,18 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     private String username;
     private String password;
     private String realname;
     private Date createtime;
     private String createby;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -48,25 +48,25 @@ public class User {
         this.realname = realname;
     }
 
-	public Date getCreatetime() {
-		return createtime;
-	}
+    public Date getCreatetime() {
+        return createtime;
+    }
 
-	public void setCreatetime(Date createtime) {
-		this.createtime = createtime;
-	}
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
+    }
 
-	public String getCreateby() {
-		return createby;
-	}
+    public String getCreateby() {
+        return createby;
+    }
 
-	public void setCreateby(String createby) {
-		this.createby = createby;
-	}
+    public void setCreateby(String createby) {
+        this.createby = createby;
+    }
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", realname=" + realname
-				+ ", createtime=" + createtime + ", createby=" + createby + "]";
-	}
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", username=" + username + ", password=" + password + ", realname=" + realname
+                + ", createtime=" + createtime + ", createby=" + createby + "]";
+    }
 }
