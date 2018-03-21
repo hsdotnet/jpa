@@ -5,7 +5,7 @@ import com.hs.domain.User;
 import java.util.List;
 
 public interface UserService {
-	List<User> findAll();
+    List<User> findAll();
 
-	User findOne(Integer id);
+    User findOne(Integer id);
 }
